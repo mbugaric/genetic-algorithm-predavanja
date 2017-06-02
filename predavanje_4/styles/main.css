@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+.matter-demo {
+    height: auto !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#results {
+    margin-left: 20px;
+}
+
+.large{
+    font-size: 26px;
+    color: brown;
+}
+
+.small{
+    font-size: 16px;
+}
+
+#resultsContainer {
+    position: absolute;
+    background-color: rgb(236, 255, 255);
+    width: 100%;
+    border: 1px gray;
+    font-family: Arial;
+    font-size: 20px;
+    padding: 10px 15px;
+    top: 0px;
+}
+
+.selectedFitness
+{
+    transition: all 1s;
+    background-color: lightgreen;
+}
