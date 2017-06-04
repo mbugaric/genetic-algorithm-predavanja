@@ -35,6 +35,7 @@ function simpleTournamentSelectionWithDebug(population) {
                 winner = individual1.fitness > individual2.fitness ? "(" + individual1.fitness + ")" : "(" + individual2.fitness + ")"
                 tempPopulation.push(individual1.fitness > individual2.fitness ? individual1 : individual2);
                 $("#results").append("<br /><span class=\"small\">" + ind1 + " vs. " + ind2 + " - pobjednik je " + winner + "</span>");
+                console.log( ind1 + " vs. " + ind2 + " - winner is " + winner);
 
                 if (cntr == (VEL_POP / 2)-1) {
                     console.log("Winners", tempPopulation)

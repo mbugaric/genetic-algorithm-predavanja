@@ -71,6 +71,9 @@ function stohUnivSelectionWithDebug(population, N) {
         pointersString+=Math.round(Start + i * P) +", ";
     }
 
+    console.log("Population", population);
+    console.log("Sum of fitness values - " + F);
+    console.log("Pointers", pointersString)
     $("#results").append("<br /><span class=\"small\">Značke postavljene na: " + pointersString+"</span><br />");
 
     let newPopulation = RWSWithDebug(population, ptrs);

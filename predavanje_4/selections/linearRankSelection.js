@@ -49,6 +49,7 @@ function linearRankSelectionWithDebug(population, N) {
     });
     $( "#results" ).append( '<br /><span class="small" >Probabilities '+text+"</span>&nbsp" );
 
+    console.log("population", population)
     console.log("probabilities", probabilities);
     console.log("q", q);
 

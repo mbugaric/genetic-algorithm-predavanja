@@ -16,7 +16,7 @@ var curr_gen = 1;
 var curr_pop = 0;
 var population = new Array();
 let matingPool = new Array();
-const VEL_POP = 5;
+const VEL_POP = 4;
 const NUM_GEN = 4;
 const CROSSOVER_PROBABILITY = 0.9;
 const MUTATION_PROBABILITY = 0.05;
@@ -80,10 +80,11 @@ const MATING_POOL_SIZE = Math.min(4, VEL_POP - 1);
     }
 
     function selection(N) {
-        let matingPool = new Array();
-        matingPool = returnNLargest(population, N);
-        return matingPool;
-        //population = fillPopulationWithRandom(newPopulation, MATING_POOL_SIZE);
+        return new Promise((resolve, reject) => {
+            let matingPool = new Array();
+            matingPool = returnNLargest(population, N);
+            resolve(matingPool);
+        });
     }
 
     function crossover(matingPool) {
@@ -167,16 +168,19 @@ const MATING_POOL_SIZE = Math.min(4, VEL_POP - 1);
             $("#results").append("<br /><span class=\"large\">Best solution is individual with fitness " + bestSolution[0].fitness + "</h1>&nbsp");
         }
         if (curr_gen < NUM_GEN) {
-            updateResults();
+            
             bestSolution = null;
             let elites = returnNLargest(population, NUM_ELITES);
-            matingPool = selection(MATING_POOL_SIZE);
-            population = crossover(matingPool);
-            population = mutate();
-            elitism(elites);
-            $("#results").append("<br /><b>Generacija " + (curr_gen + 1) + " </b>");
-            evolve();
-            curr_gen++;
+            matingPool = selection(MATING_POOL_SIZE).then((resolve)=>{
+                matingPool = resolve;
+                updateResults();
+                population = crossover(matingPool);
+                population = mutate();
+                elitism(elites);
+                $("#results").append("<br /><b>Generacija " + (curr_gen + 1) + " </b>");
+                evolve();
+                curr_gen++;
+            });
         }
     });
 })();

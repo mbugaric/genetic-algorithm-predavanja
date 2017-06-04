@@ -121,7 +121,6 @@ function actualMutation(number, probability, lowerLimit, upperLimit){
 
 function updateResults(){
     $( "#results" ).empty();
-    
     if(matingPool!=null)
     {
         $("#results").append("<b>Pool: </b>");

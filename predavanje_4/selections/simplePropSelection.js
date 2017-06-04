@@ -32,6 +32,7 @@ function simplePropSelectionWithDebug(population, N) {
         q.push((individual.fitness / sum) + (q[index - 1] || 0));
     });
 
+    console.log("Population",population);
     console.log(q);
     for (let i = 0; i < N; i++) {
         setTimeout(function () {
