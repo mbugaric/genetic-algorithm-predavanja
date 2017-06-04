@@ -31,11 +31,11 @@ var curr_pop = 0;
 var population = new Array();
 let matingPool = new Array();
 const VEL_POP = 5;
-const NUM_GEN = 4;
+const NUM_GEN = 3;
 const CROSSOVER_PROBABILITY = 0.9;
 const MUTATION_PROBABILITY = 0.05;
 const NUM_ELITES = Math.min(2, VEL_POP - 1);
-const MATING_POOL_SIZE = 10;
+const MATING_POOL_SIZE = 8;
 const PAUSE_BETWEEN_GENERATIONS = 2000*MATING_POOL_SIZE+2000;
 
 

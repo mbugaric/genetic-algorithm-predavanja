@@ -93,6 +93,7 @@ function RWSWithDebug(population, pointers)
      })
      write += '</span>';
      $("#results").append(write);
+     console.log("Chosen:", newPopulation);
      return newPopulation;
 }
 
