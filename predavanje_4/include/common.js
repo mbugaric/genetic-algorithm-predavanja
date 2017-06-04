@@ -108,25 +108,33 @@ function mutateGrayCodeWithProbability(grayCode, probabilityToMutate)
 }
 
 
-function actualMutation(number, probability, lowerLimit, upperLimit)
-{
+function actualMutation(number, probability, lowerLimit, upperLimit){
     let newGray = null;
-    do
-    {
+    do{
         gray = gray2Dec(number);
         newGray = mutateGrayCodeWithProbability(gray, probability);
         dec = dec2Gray(newGray);
     }
     while(!(dec>lowerLimit && dec<upperLimit))
-
     return Number(dec);
 }
 
-function updateResults()
-{
+function updateResults(){
     $( "#results" ).empty();
-    $("#results").append("<b>Prethodno: </b>");
-    population.map((individual)=>{
-        $( "#results" ).append( "<span>"+individual.fitness+"</span>&nbsp" );
-    })
+    
+    if(matingPool!=null)
+    {
+        $("#results").append("<b>Pool: </b>");
+        matingPool.map((individual)=>{
+            $( "#results" ).append( "<span>"+individual.fitness+"</span>&nbsp" );
+        })
+    }
+    else
+    {
+        $("#results").append("<b>Prethodno: </b>");
+        population.map((individual)=>{
+            $( "#results" ).append( "<span>"+individual.fitness+"</span>&nbsp" );
+        })
+    }
+    
 }

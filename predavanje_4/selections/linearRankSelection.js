@@ -1,5 +1,7 @@
 function linearRankSelection(population, N) {
-let sortedPopulation = population.sort(function (a, b) {
+    let newPopulation = new Array();
+
+    let sortedPopulation = population.sort(function (a, b) {
         return a.fitness - b.fitness;
     });
 
@@ -27,6 +29,8 @@ let sortedPopulation = population.sort(function (a, b) {
 
 
 function linearRankSelectionWithDebug(population, N) {
+    let newPopulation = new Array();
+
     let sortedPopulation = population.sort(function (a, b) {
         return a.fitness - b.fitness;
     });
